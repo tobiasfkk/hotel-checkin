@@ -1,0 +1,8 @@
+# Ignorar dependências e builds
+node_modules/
+target/
+dist/
+.idea/
+.vscode/
+.env
+docker-data/
