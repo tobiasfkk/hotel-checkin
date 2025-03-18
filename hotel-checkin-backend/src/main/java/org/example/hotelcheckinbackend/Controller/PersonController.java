@@ -1,7 +1,7 @@
-package com.example.hotelcheckin.controller;
+package org.example.hotelcheckinbackend.Controller;
 
-import com.example.hotelcheckin.model.Person;
-import com.example.hotelcheckin.service.PersonService;
+import org.example.hotelcheckinbackend.Model.Person;
+import org.example.hotelcheckinbackend.Controller.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

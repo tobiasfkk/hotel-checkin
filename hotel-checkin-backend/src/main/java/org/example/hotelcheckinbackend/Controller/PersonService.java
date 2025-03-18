@@ -1,7 +1,7 @@
-package com.example.hotelcheckin.service;
+package org.example.hotelcheckinbackend.Controller;
 
-import com.example.hotelcheckin.model.Person;
-import com.example.hotelcheckin.repository.PersonRepository;
+import org.example.hotelcheckinbackend.Model.Person;
+import org.example.hotelcheckinbackend.Repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.example.hotelcheckin.repository;
+package org.example.hotelcheckinbackend.Repository;
 
-import com.example.hotelcheckin.model.Person;
+import org.example.hotelcheckinbackend.Model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

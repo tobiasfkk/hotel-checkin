@@ -1,7 +1,6 @@
-package com.example.hotelcheckin.controller;
+package org.example.hotelcheckinbackend.Controller;
 
-import com.example.hotelcheckin.model.CheckIn;
-import com.example.hotelcheckin.service.CheckInService;
+import org.example.hotelcheckinbackend.Model.Checkin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,27 +8,27 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/checkins")
-public class CheckInController {
+public class CheckinController {
     @Autowired
-    private CheckInService checkInService;
+    private CheckinService checkinService;
 
     @PostMapping
-    public CheckIn create(@RequestBody CheckIn checkIn) {
-        return checkInService.save(checkIn);
+    public Checkin create(@RequestBody Checkin checkin) {
+        return checkinService.save(checkin);
     }
 
     @GetMapping
-    public List<CheckIn> getAll() {
-        return checkInService.findAll();
+    public List<Checkin> getAll() {
+        return checkinService.findAll();
     }
 
     @GetMapping("/active")
-    public List<CheckIn> getActive() {
-        return checkInService.findActive();
+    public List<Checkin> getActive() {
+        return checkinService.findActive();
     }
 
     @GetMapping("/inactive")
-    public List<CheckIn> getInactive() {
-        return checkInService.findInactive();
+    public List<Checkin> getInactive() {
+        return checkinService.findInactive();
     }
 }

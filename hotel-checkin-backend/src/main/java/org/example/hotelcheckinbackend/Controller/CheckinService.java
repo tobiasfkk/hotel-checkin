@@ -1,30 +1,30 @@
-package com.example.hotelcheckin.service;
+package org.example.hotelcheckinbackend.Controller;
 
-import com.example.hotelcheckin.model.CheckIn;
-import com.example.hotelcheckin.repository.CheckInRepository;
+import org.example.hotelcheckinbackend.Repository.CheckinRepository;
+import org.example.hotelcheckinbackend.Model.Checkin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CheckInService {
+public class CheckinService {
     @Autowired
-    private CheckInRepository checkInRepository;
+    private CheckinRepository checkinRepository;
 
-    public CheckIn save(CheckIn checkIn) {
-        return checkInRepository.save(checkIn);
+    public Checkin save(Checkin checkin) {
+        return checkinRepository.save(checkin);
     }
 
-    public List<CheckIn> findAll() {
-        return checkInRepository.findAll();
+    public List<Checkin> findAll() {
+        return checkinRepository.findAll();
     }
 
-    public List<CheckIn> findActive() {
-        return checkInRepository.findByDataSaidaIsNull();
+    public List<Checkin> findActive() {
+        return checkinRepository.findByDataSaidaIsNull();
     }
 
-    public List<CheckIn> findInactive() {
-        return checkInRepository.findByDataSaidaIsNotNull();
+    public List<Checkin> findInactive() {
+        return checkinRepository.findByDataSaidaIsNotNull();
     }
 }
