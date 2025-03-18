@@ -12,7 +12,6 @@ public class Checkin {
 
     @ManyToOne
     private Person person;
-
     private LocalDateTime dataEntrada;
     private LocalDateTime dataSaida;
     private boolean adicionalVeiculo;

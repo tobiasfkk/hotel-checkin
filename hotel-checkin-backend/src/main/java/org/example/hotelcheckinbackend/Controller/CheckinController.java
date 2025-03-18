@@ -31,4 +31,10 @@ public class CheckinController {
     public List<Checkin> getInactive() {
         return checkinService.findInactive();
     }
+
+    @GetMapping("/total/{id}")
+    public double getTotal(@PathVariable Long id) {
+        Checkin checkin = checkinService.findById(id);
+        return checkinService.calculateTotal(checkin);
+    }
 }
