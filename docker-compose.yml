@@ -20,7 +20,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/hotel-checkin
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/hotel_checkin
       SPRING_DATASOURCE_USERNAME: admin
       SPRING_DATASOURCE_PASSWORD: admin
     restart: always
