@@ -16,7 +16,7 @@ export class ApiService {
   }
 
   getPeople(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/people`);
+    return this.http.get(this.apiUrl);
   }
 
   searchPeople(query: string): Observable<any[]> {
@@ -25,5 +25,25 @@ export class ApiService {
 
   createCheckin(checkin: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/checkins`, checkin);
+  }
+
+  // Buscar todos os check-ins
+  getCheckins(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/checkins`);
+  }
+
+  // Buscar check-ins ativos
+  getActiveCheckins(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/checkins/active`);
+  }
+
+  // Buscar check-ins inativos
+  getInactiveCheckins(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/checkins/inactive`);
+  }
+
+  // Calcular total de um check-in
+  getCheckinTotal(checkinId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/checkins/total/${checkinId}`);
   }
 }

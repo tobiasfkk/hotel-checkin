@@ -1,1 +1,24 @@
-<router-outlet></router-outlet>
+<div class="container">
+  <!-- Botões para alternar entre os formulários -->
+  <div class="button-group">
+    <button class="toggle-button" (click)="showForm('person')">
+      Incluir Pessoa
+    </button>
+    <button class="toggle-button" (click)="showForm('checkin')">
+      Novo Check-in
+    </button>
+  </div>
+
+  <!-- Formulário de Pessoa -->
+  <div *ngIf="activeForm === 'person'" class="form-container">
+    <app-person-form></app-person-form>
+  </div>
+
+  <!-- Formulário de Check-in -->
+  <div *ngIf="activeForm === 'checkin'" class="form-container">
+    <app-checkin-form></app-checkin-form>
+  </div>
+
+  <!-- Lista de Pessoas -->
+  <app-people-list></app-people-list>
+</div>

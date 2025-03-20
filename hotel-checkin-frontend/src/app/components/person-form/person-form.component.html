@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Incluir Pessoa</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" id="nome" class="form-control" [(ngModel)]="person.nome" name="nome" required>
+    </div>
+    <div class="mb-3">
+      <label for="documento" class="form-label">Documento</label>
+      <input type="text" id="documento" class="form-control" [(ngModel)]="person.documento" name="documento" required>
+    </div>
+    <div class="mb-3">
+      <label for="telefone" class="form-label">Telefone</label>
+      <input type="text" id="telefone" class="form-control" [(ngModel)]="person.telefone" name="telefone" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+      {{ successMessage }}
+    </div>
+  </form>
+</div>
