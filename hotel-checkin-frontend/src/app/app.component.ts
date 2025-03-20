@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CheckinFormComponent } from './components/checkin-form/checkin-form.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `<app-checkin-form></app-checkin-form>`,
+  imports: [CheckinFormComponent]
 })
-export class AppComponent {
-  title = 'hotel-checkin-frontend';
-}
+export class AppComponent {}

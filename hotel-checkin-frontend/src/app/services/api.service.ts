@@ -6,7 +6,7 @@ import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class PeopleService {
+export class ApiService {
   private apiUrl = `${environment.apiUrl}/people`;
 
   constructor(private http: HttpClient) {}
@@ -15,11 +15,15 @@ export class PeopleService {
     return this.http.post(this.apiUrl, person);
   }
 
-  getAllPeople(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getPeople(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/people`);
   }
 
   searchPeople(query: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/search?query=${query}`);
+  }
+
+  createCheckin(checkin: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/checkins`, checkin);
   }
 }

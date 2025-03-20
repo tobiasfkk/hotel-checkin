@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-  import { PeopleService } from '../../services/people.service';
+  import { PeopleService } from '../../services/api.service';
   import { FormsModule } from '@angular/forms';
   import { CommonModule } from '@angular/common';
 
