@@ -29,15 +29,15 @@ services:
     build: ./hotel-checkin-frontend
     container_name: hotel-checkin-frontend
     ports:
-      - "4200:4200"
+      - "4200:4200"  # Agora mapeamos a porta do Angular
     depends_on:
       - backend
     volumes:
       - ./hotel-checkin-frontend:/app
       - /app/node_modules
-    environment:
-      REACT_APP_BACKEND_URL: http://localhost:8080
+    command: ["npm", "run", "start", "--", "--host", "0.0.0.0", "--port", "4200"]
     restart: always
+
 
 volumes:
   postgres_data:

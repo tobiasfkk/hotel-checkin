@@ -16,7 +16,6 @@ public class Checkin {
     private LocalDateTime dataSaida;
     private boolean adicionalVeiculo;
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -57,7 +56,6 @@ public class Checkin {
         this.adicionalVeiculo = adicionalVeiculo;
     }
 
-    // toString method
     @Override
     public String toString() {
         return "Checkin{" +
@@ -69,7 +67,6 @@ public class Checkin {
                 '}';
     }
 
-    // equals and hashCode methods
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

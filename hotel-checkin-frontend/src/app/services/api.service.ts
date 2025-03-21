@@ -1,48 +1,51 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = `${environment.apiUrl}/people`;
+  private apiUrl = 'http://localhost:8080/api'; // Corrigido
 
   constructor(private http: HttpClient) {}
 
   createPerson(person: any): Observable<any> {
-    return this.http.post(this.apiUrl, person);
+    return this.http.post(`${this.apiUrl}/people`, person);
   }
 
-  getPeople(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getPeople(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/people`);
   }
 
   searchPeople(query: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/search?query=${query}`);
+    return this.http.get<any[]>(`${this.apiUrl}/people/search?query=${query}`);
   }
 
   createCheckin(checkin: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/checkins`, checkin);
   }
 
-  // Buscar todos os check-ins
   getCheckins(): Observable<any> {
     return this.http.get(`${this.apiUrl}/checkins`);
   }
 
-  // Buscar check-ins ativos
-  getActiveCheckins(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/checkins/active`);
+  // getActiveCheckins(): Observable<any> {
+  //   return this.http.get(`${this.apiUrl}/checkins/active`);
+  // }
+  //
+  // getInactiveCheckins(): Observable<any> {
+  //   return this.http.get(`${this.apiUrl}/checkins/inactive`);
+  // }
+
+  getActiveCheckins(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/checkins/active`);
   }
 
-  // Buscar check-ins inativos
-  getInactiveCheckins(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/checkins/inactive`);
+  getInactiveCheckins(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/checkins/inactive`);
   }
 
-  // Calcular total de um check-in
   getCheckinTotal(checkinId: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/checkins/total/${checkinId}`);
   }

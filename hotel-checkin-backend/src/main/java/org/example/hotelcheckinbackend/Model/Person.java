@@ -12,7 +12,6 @@ package org.example.hotelcheckinbackend.Model;
         private String documento;
         private String telefone;
 
-        // Getters and Setters
         public Long getId() {
             return id;
         }
@@ -45,7 +44,6 @@ package org.example.hotelcheckinbackend.Model;
             this.telefone = telefone;
         }
 
-        // toString method
         @Override
         public String toString() {
             return "Person{" +
@@ -56,7 +54,6 @@ package org.example.hotelcheckinbackend.Model;
                     '}';
         }
 
-        // equals and hashCode methods
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;

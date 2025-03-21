@@ -1,15 +1,18 @@
-# Usar a imagem oficial do Node.js para build
-FROM node:18 AS build
+# Usar a imagem oficial do Node.js
+FROM node:18
 
+# Criar diretório de trabalho no container
 WORKDIR /app
+
+# Copiar package.json e instalar dependências
 COPY package.json package-lock.json ./
 RUN npm install
+
+# Copiar todo o código do frontend para dentro do container
 COPY . .
-RUN npm run build
 
-# Usar a imagem do Nginx para servir o frontend
-FROM nginx:alpine
+# Expor a porta usada pelo Angular
+EXPOSE 4200
 
-COPY --from=build /app/dist/hotel-checkin-frontend /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Comando para rodar o Angular dentro do container
+CMD ["npm", "run", "start"]

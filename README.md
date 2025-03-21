@@ -1,14 +1,17 @@
 # Repositório
 ### Disponível em:
     https://github.com/tobiasfkk/hotel-checkin
+#### Projeto desenvolvido a partir do arquivo DesafioHotel2.pdf presente na pasta raiz deste projeto.
 ## Seguir os passos abaixo para iniciar o docker:
 #### Executar o comando para acessar a pasta raiz do projeto:
-    cd hotel_checkin
+    cd hotel-checkin
 #### Executar o comando para acessar a pasta do backend:
     cd hotel-checkin-backend
-#### Executar o comando para dar permissão ao Maven:
-    chmod +x mvnw
 #### Executar o comando para gerar o arquivo .jar:
+    ./mvnw clean package -DskipTests
+#### Executar o comando para dar permissão ao Maven (Apenas caso o comando anterior tenha falhado):
+    chmod +x mvnw
+#### Executar o comando para gerar o arquivo .jar (Caso foi necessário rodar o comando anterior):
     ./mvnw clean package -DskipTests
 #### Executar o comando para acessar a pasta raiz do projeto:
     cd ..
@@ -64,4 +67,3 @@
     Usuário: admin
     Senha: admin
     Banco: hotel_checkin
-

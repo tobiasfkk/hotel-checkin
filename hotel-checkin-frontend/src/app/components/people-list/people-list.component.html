@@ -1,27 +1,34 @@
 <div class="container mt-3">
-  <h2>Lista de Pessoas</h2>
+<h2>Consulta</h2>
 
-  <div *ngIf="loading" class="alert alert-info">Carregando...</div>
-  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+<div *ngIf="loading" class="alert alert-info">Carregando...</div>
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
 
-  <table class="table table-bordered table-striped mt-3" *ngIf="people.length > 0">
-    <thead class="table-dark">
+<div class="filters">
+  <button (click)="filterPeople('presentes')" class="btn btn-primary">Pessoas Ainda Presentes</button>
+  <button (click)="filterPeople('deixaram')" class="btn btn-secondary">Pessoas que Já Deixaram o Hotel</button>
+</div>
+
+<table class="table table-bordered table-striped mt-3" *ngIf="filteredPeople.length > 0">
+  <thead class="table-dark">
     <tr>
       <th>Nome</th>
       <th>Documento</th>
       <th>Telefone</th>
+      <th>Total Gasto</th>
     </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let person of people">
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of filteredPeople">
       <td>{{ person.nome }}</td>
       <td>{{ person.documento }}</td>
       <td>{{ person.telefone }}</td>
+      <td>{{ person.totalGasto | currency }}</td>
     </tr>
-    </tbody>
-  </table>
+  </tbody>
+</table>
 
-  <div *ngIf="!loading && people.length === 0" class="alert alert-warning mt-3">
-    Nenhuma pessoa cadastrada.
-  </div>
+<div *ngIf="!loading && filteredPeople.length === 0" class="alert alert-warning mt-3">
+  Nenhuma pessoa encontrada.
+</div>
 </div>
